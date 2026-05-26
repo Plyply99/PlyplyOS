@@ -1,6 +1,6 @@
 # PlyplyOS
 
-Silverblue with Niri, Dank Media Shell and supporting apps.
+Silverblue with Niri, Dank Material Shell and supporting apps.
 
 To install:
 
