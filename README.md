@@ -3,6 +3,7 @@
 Custom Silverblue image with Niri, Dank Media Shell and other apps.
 
 To install:
+
 sudo bootc switch ghcr.io/plyply99/plyplyos:latest
 
 
