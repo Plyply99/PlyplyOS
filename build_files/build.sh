@@ -2,23 +2,28 @@
 
 set -ouex pipefail
 
+# Add repos
+dnf5 -y copr enable avengemedia/dms-git 
+dnf5 -y copr enable yalter/niri-git
+# Terra repo
+dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+
+
+# Use niri-git instead of fedora repo
+echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
+
 ### Install packages
+dnf5 -y install akmods bat bat-extras btop cava chafa cliphist dgop dms emacs eza fastfetch ghostty-nightly grim input-remapper kernel-devel mangohud niri rpmdevtools slurp vkBasalt 
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
+# Remove niri-git optional dependencies
+dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock waybar
 
-# this installs a package from fedora repos
-dnf5 install -y tmux 
 
 # Use a COPR Example:
-#
 # dnf5 -y copr enable ublue-os/staging
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
 #### Example for enabling a System Unit File
-
-systemctl enable podman.socket
+#systemctl enable podman.socket
