@@ -5,6 +5,7 @@ set -ouex pipefail
 # Add repos
 dnf5 -y copr enable avengemedia/dms-git 
 dnf5 -y copr enable yalter/niri-git
+dnf5 -y copr enable ublue-os/akmods 
 # Terra repo
 dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
