@@ -14,7 +14,8 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
 ### Install packages
-dnf5 -y install akmods bat bat-extras btop cava chafa cliphist dgop dms emacs eza fastfetch ghostty-nightly grim input-remapper kernel-devel mangohud niri rpmdevtools slurp vkBasalt 
+dnf5 -y install bat bat-extras btop cava chafa cliphist dgop dms emacs eza fastfetch ghostty-nightly grim input-remapper kernel-devel mangohud niri rpmdevtools slurp vkBasalt 
+# akmods
 
 # Remove niri-git optional dependencies
 dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock waybar
