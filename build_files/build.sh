@@ -12,7 +12,7 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
 # Install support packages - printing bluetooth etc
-dnf5 -y install cups cups-pk-helper system-config-printer bluez bluez-tools bluetool bluez-cups
+dnf5 -y install cups-pk-helper system-config-printer
 # bluez bluez-tools bluetool bluez-cups
 
 ### Install packages
