@@ -18,7 +18,7 @@ dnf5 -y install cups-pk-helper system-config-printer
 ### Install packages
 dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty-nightly gnome-disk-utility grim input-remapper mangohud niri nwg-look qt6-qtmultimedia slurp vkBasalt
 # File manager
-dnf5 -y install file-roller thunar thunar-archive-plugin thunar-media-tags-plugin thunar-vcs-plugin thunar-volman
+dnf5 -y install file-roller thunar thunar-archive-plugin thunar-volman
 # Gnome software center
 dnf5 -y install gnome-software gnome-software-rpm-ostree
 
