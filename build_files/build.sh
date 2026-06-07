@@ -27,6 +27,6 @@ dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCe
 systemctl enable cups.socket
 
 # Setting up DMS Greeter
-dms greeter enable
-dms greeter sync
+#dms greeter enable
+#dms greeter sync
 
