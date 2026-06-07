@@ -16,11 +16,11 @@ dnf5 -y install cups-pk-helper system-config-printer
 # bluez bluez-tools bluetool bluez-cups
 
 ### Install packages
-dnf5 -y install bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty-nightly grim htop input-remapper mangohud niri qt6-multimedia slurp vkBasalt wl-clipboard
+dnf5 -y install bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty-nightly grim input-remapper mangohud niri qt6-qtmultimedia slurp vkBasalt
 dnf5 -y install thunar thunar-archive-plugin thunar-media-tags-plugin thunar-vcs-plugin thunar-volman
 
 # Remove niri-git optional dependencies
-dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock waybar
+dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCenter waybar
 
 #### Example for enabling a System Unit File
 #systemctl enable podman.socket
