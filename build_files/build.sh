@@ -11,14 +11,6 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 # Use niri-git instead of fedora repo
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
-# Install support packages - printing bluetooth etc
-#dnf5 -y install cups-pk-helper system-config-printer
-# bluez bluez-tools bluetool bluez-cups
-
-# Testing repos
-dnf5 -y config-manager setopt updates-testing.enabled=true
-dnf5 -y update
-
 ### Install packages
 dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty gnome-disk-utility grim input-remapper mangohud mpv niri nwg-look qt6-qtmultimedia slurp vkBasalt
 # File manager
