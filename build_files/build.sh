@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-# Add repos
+# Add copr repos
 dnf5 -y copr enable avengemedia/dms-git 
 dnf5 -y copr enable yalter/niri-git
 # Terra repo
@@ -12,11 +12,15 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
 # Install support packages - printing bluetooth etc
-dnf5 -y install cups-pk-helper system-config-printer
+#dnf5 -y install cups-pk-helper system-config-printer
 # bluez bluez-tools bluetool bluez-cups
 
+# Testing repos
+dnf5 -y config-manager setopt updates-testing.enabled=true
+dnf5 -y update
+
 ### Install packages
-dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty-nightly gnome-disk-utility grim input-remapper mangohud niri nwg-look qt6-qtmultimedia slurp vkBasalt
+dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty gnome-disk-utility grim input-remapper mangohud mpv niri nwg-look qt6-qtmultimedia slurp vkBasalt
 # File manager
 dnf5 -y install file-roller thunar thunar-archive-plugin thunar-volman
 # Gnome software center
@@ -30,7 +34,4 @@ dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCe
 systemctl enable cups.socket
 systemctl enable greetd.service
 
-# Setting up DMS Greeter
-#dms greeter enable
-#dms greeter sync
 
