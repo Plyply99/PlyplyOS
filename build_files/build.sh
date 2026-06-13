@@ -21,7 +21,7 @@ dnf5 -y copr enable nett00n/hyprland
 dnf5 -y install hyprland hyprland-guiutils hyprpicker uwsm
 
 # Remove niri-git and hyprland optional dependencies
-dnf5 -y remove alacritty fuzzel mako nwg-panel swaybg swayidle swaylock SwayNotificationCenter waybar
+dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCenter waybar
 
 #### Example for enabling a System Unit File
 #systemctl enable podman.socket
