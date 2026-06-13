@@ -13,7 +13,7 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
 ### Install packages
-dnf5 -y install hyprland hyprpicker
+dnf5 -y install hyprland hyprpicker uwsm
 dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look qt6-qtmultimedia slurp vkBasalt
 
 # Gnome software center
