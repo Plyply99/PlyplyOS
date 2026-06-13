@@ -1,6 +1,6 @@
 # PlyplyOS
 
-Fedora atomic with Niri, Dank Material Shell and supporting apps.
+Fedora atomic with Niri, Hyprland, Dank Material Shell and supporting apps.
 
 To install:
 
