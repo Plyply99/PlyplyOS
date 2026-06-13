@@ -14,8 +14,8 @@ echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalt
 
 ### Install packages
 dnf5 -y install hyprland hyprpicker uwsm
-dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look qt6-qtmultimedia slurp vkBasalt
-
+dnf5 -y install adw-gtk3-theme bat bat-extras btop chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look qt6-qtmultimedia slurp vkBasalt
+dnf5 -y  --disablerepo="*" --enablerepo=fedora --enablerepo=updates install cava   
 # Gnome software center
 dnf5 -y install gnome-software gnome-software-rpm-ostree
 
