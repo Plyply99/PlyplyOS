@@ -30,8 +30,6 @@ systemctl enable greetd.service
 
 
 # Clean up left overs
-DNF5 clean all
-
 rm -rf /tmp/*
 rm -rf /var/*
 #ostree container commit
