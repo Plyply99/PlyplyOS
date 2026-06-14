@@ -29,3 +29,11 @@ systemctl enable cups.socket
 systemctl enable greetd.service
 
 
+# Clean up left overs
+DNF5 clean all
+
+rm -rf /tmp/*
+rm -rf /var/*
+#ostree container commit
+mkdir -p /tmp
+mkdir -p /var/tmp && chmod -R 1777 /var/tmp
