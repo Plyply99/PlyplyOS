@@ -27,11 +27,3 @@ dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCe
 #systemctl enable podman.socket
 systemctl enable cups.socket
 systemctl enable greetd.service
-
-
-# Clean up left overs
-rm -rf /tmp/*
-rm -rf /var/*
-#ostree container commit
-mkdir -p /tmp
-mkdir -p /var/tmp && chmod -R 1777 /var/tmp
