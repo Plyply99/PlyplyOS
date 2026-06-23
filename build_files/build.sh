@@ -8,7 +8,7 @@ dnf5 -y install dnf5-plugins
 # Add hardware codecs and multimedia
 dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf5 -y install @multimedia
-dnf5 -y swap mesa-va-drivers mesa-va-drivers-freeworld --allowerasing
+dnf5 -y swap mesa-va-drivers mesa-va-drivers-freeworld --allowerasing --enablerepo=rpmfusion-free-updates-testing
 dnf5 -y swap ffmpeg-free ffmpeg --allowerasing
 
 dnf5 -y copr enable avengemedia/dms-git 
@@ -34,9 +34,9 @@ dnf5 clean all
 
 #### Example for enabling a System Unit File
 #systemctl enable podman.socket
-systemctl enable bluetooth.service avahi-daemon.service firewalld.service NetworkManager.service greetd.service
+useradd -r -s /bin/false -c "RealtimeKit" rtkit
+systemctl enable bluetooth.service avahi-daemon.service firewalld.service NetworkManager.service greetd.service rtkit-daemon.service
 systemctl enable cups.socket
-
 
 # Firewall stuff
 firewall-offline-cmd --zone=public --add-service=ssh
