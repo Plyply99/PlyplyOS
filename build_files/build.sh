@@ -2,9 +2,6 @@
 
 set -ouex pipefail
 
-#Set locale
-localectl set-locale LANG=en_US.UTF-8
-
 # Add dnf plugins
 dnf5 -y install dnf5-plugins
 
@@ -45,4 +42,6 @@ firewall-offline-cmd --zone=public --add-service=ssh
 firewall-offline-cmd --zone=public --add-service=dhcpv6-client
 firewall-offline-cmd --zone=public --add-service=mdns
 
+#Set locale
+localectl set-locale LANG=en_US.UTF-8
 
