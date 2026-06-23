@@ -1,8 +1,9 @@
 #!/bin/bash
 
 set -ouex pipefail
+
 # Copy the contents of system_files/ of the git repo to /
-cp -avf "/ctx/system_files"/. /
+#cp -avf "/ctx/system_files"/. /
 
 dnf5 -y copr enable avengemedia/dms-git 
 dnf5 -y copr enable yalter/niri-git
