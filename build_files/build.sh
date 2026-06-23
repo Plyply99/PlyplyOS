@@ -20,7 +20,8 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
 ### Install packages
-dnf5 -y install cups cups-filters system-config-printer ghostscript gutenprint gutenprint-cups bluez bluez-cups blueman NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld firewall-offline-cmd distrobox htop  xwininfo glibc-locale-source glibc-langpack-en libva-utils rtkit 
+dnf5 -y install cups cups-filters system-config-printer ghostscript gutenprint gutenprint-cups bluez bluez-cups blueman NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld firewall-offline-cmd distrobox htop  xwininfo glibc-locale-source glibc-langpack-en libva-utils rtkit
+dnf5 -y install plymouth plymouth-theme-spinner
 dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look python3-dbus-next qt6-qtmultimedia slurp vkBasalt
 dnf5 -y install cups-pk-helper fprintd i2c-tools kf6-kimageformats khal power-profiles-daemon gnome-software gnome-software-rpm-ostree
 
@@ -34,9 +35,11 @@ dnf5 clean all
 
 #### Example for enabling a System Unit File
 #systemctl enable podman.socket
-systemctl enable avahi-daemon.service firewalld.service NetworkManager.service greetd.service rtkit-daemon.service
+systemctl enable avahi-daemon.service firewalld.service NetworkManager.service greetd.service rtkit-daemon.service plymouth-start.service
 systemctl enable cups.socket
-# bluetooth.service
+# Plymouth prettiness
+systemctl enable plymouth-start.service
+dracut -fv --regenerate-all
 
 # Firewall stuff
 firewall-offline-cmd --zone=public --add-service=ssh
