@@ -2,12 +2,15 @@
 
 set -ouex pipefail
 
+#Set locale
+localectl set-locale LANG=en_US.UTF-8
+
 # Add dnf plugins
-#dnf5 -y install dnf5-plugins
+dnf5 -y install dnf5-plugins
 
 # Add hardware codecs and multimedia
-#dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-#dnf5 -y install @multimedia
+dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf5 -y install @multimedia
 #dnf5 -y swap mesa-va-drivers mesa-va-drivers-freeworld
 #dnf5 -y swap ffmpeg-free ffmpeg --allowerasing
 
@@ -20,12 +23,9 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
 ### Install packages
-#dnf5 -y install cups cups-filters system-config-printer gutenprint bluez bluez-cups blueman NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld distrobox htop  xwininfo
+dnf5 -y install cups cups-filters system-config-printer ghostscript gutenprint bluez bluez-cups blueman NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld firewall-offline-cmd distrobox htop  xwininfo
 dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look python3-dbus-next qt6-qtmultimedia slurp vkBasalt
-dnf5 -y install cups-pk-helper fprintd i2c-tools kf6-kimageformats khal power-profiles-daemon
-
-# Gnome software center
-dnf5 -y install gnome-software gnome-software-rpm-ostree
+dnf5 -y install cups-pk-helper fprintd i2c-tools kf6-kimageformats khal power-profiles-daemon gnome-software gnome-software-rpm-ostree
 
 # Hyprland
 dnf5 -y copr enable nett00n/hyprland 
@@ -36,6 +36,13 @@ dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCe
 
 #### Example for enabling a System Unit File
 #systemctl enable podman.socket
-#systemctl enable bluetooth.service avahi-daemon.service firewalld.service NetworkManager.service
+systemctl enable bluetooth.service avahi-daemon.service firewalld.service NetworkManager.service greetd.service
 systemctl enable cups.socket
-systemctl enable greetd.service
+
+
+# Firewall stuff
+firewall-offline-cmd --zone=public --add-service=ssh
+firewall-offline-cmd --zone=public --add-service=dhcpv6-client
+firewall-offline-cmd --zone=public --add-service=mdns
+
+
