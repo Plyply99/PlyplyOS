@@ -1,10 +1,10 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
-COPY system_files /system_files
+#COPY system_files /system_files
 
 # Base Image
-FROM ghcr.io/ublue-os/base-main:latest
+FROM ghcr.io/ublue-os/base-main:sha256-75e39f4daa22a3552703a4ddf31486de33b482e5cae57cd7ff6f533fbb990f05.sig
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/silverblue-main:latest
