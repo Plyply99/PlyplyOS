@@ -7,7 +7,7 @@ dnf5 -y install dnf5-plugins
 
 # Add hardware codecs and multimedia
 dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-dnf5 -y groupinstall @multimedia
+dnf5 -y install @multimedia
 dnf5 -y swap mesa-va-drivers mesa-va-drivers-freeworld
 dnf5 -y swap ffmpeg-free ffmpeg --allowerasing
 
