@@ -34,7 +34,6 @@ dnf5 clean all
 
 #### Example for enabling a System Unit File
 #systemctl enable podman.socket
-useradd -r -s /bin/false -c "RealtimeKit" rtkit
 systemctl enable bluetooth.service avahi-daemon.service firewalld.service NetworkManager.service greetd.service rtkit-daemon.service
 systemctl enable cups.socket
 
