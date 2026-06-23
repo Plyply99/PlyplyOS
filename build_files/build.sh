@@ -43,5 +43,5 @@ firewall-offline-cmd --zone=public --add-service=dhcpv6-client
 firewall-offline-cmd --zone=public --add-service=mdns
 
 #Set locale
-localectl set-locale LANG=en_US.UTF-8
+#localectl set-locale LANG=en_US.UTF-8
 
