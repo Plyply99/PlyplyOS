@@ -43,5 +43,6 @@ firewall-offline-cmd --zone=public --add-service=dhcpv6-client
 firewall-offline-cmd --zone=public --add-service=mdns
 
 #Set locale
-#localectl set-locale LANG=en_US.UTF-8
+localedef -i en_US -f UTF-8 en_US.UTF-8
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
