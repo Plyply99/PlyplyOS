@@ -4,7 +4,7 @@ COPY build_files /
 #COPY system_files /system_files
 
 # Base Image
-FROM ghcr.io/ublue-os/base-main:sha256-75e39f4daa22a3552703a4ddf31486de33b482e5cae57cd7ff6f533fbb990f05.sig
+FROM ghcr.io/ublue-os/base-main:latest
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/silverblue-main:latest
