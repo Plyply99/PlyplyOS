@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -ouex pipefail
+
 HOME_URL="https://github.com/Plyply99/PlyplyOS"
 # OS Release File (changed in order with upstream)
 # TODO: change ANSI_COLOR
