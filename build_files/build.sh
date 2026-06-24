@@ -37,8 +37,13 @@ dnf5 clean all
 #systemctl enable podman.socket
 systemctl enable avahi-daemon.service firewalld.service NetworkManager.service ly@tty2.service rtkit-daemon.service plymouth-start.service
 systemctl enable cups.socket
-systemctl disable getty@tty2.service # For Ly login manager
 #greetd.service 
+
+# Ly login manager
+systemctl disable getty@tty2.service
+chcon system_u:object_r:xdm_exec_t:s0 /usr/bin/ly
+restorecon -v /usr/bin/ly
+
 # Plymouth prettiness
 systemctl enable plymouth-start.service
 set -x; \
@@ -46,9 +51,9 @@ set -x; \
     dracut -vf --no-machineid /usr/lib/modules/$kver/initramfs.img $kver
 
 # Firewall stuff
-firewall-offline-cmd --zone=public --add-service=ssh
-firewall-offline-cmd --zone=public --add-service=dhcpv6-client
-firewall-offline-cmd --zone=public --add-service=mdns
+#firewall-offline-cmd --zone=public --add-service=ssh
+#firewall-offline-cmd --zone=public --add-service=dhcpv6-client
+#firewall-offline-cmd --zone=public --add-service=mdns
 
 #Set locale
 localedef -i en_US -f UTF-8 en_US.UTF-8
