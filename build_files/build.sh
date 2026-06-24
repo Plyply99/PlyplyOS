@@ -37,6 +37,7 @@ dnf5 clean all
 #systemctl enable podman.socket
 systemctl enable avahi-daemon.service firewalld.service NetworkManager.service ly@tty2.service rtkit-daemon.service plymouth-start.service
 systemctl enable cups.socket
+systemctl disable getty@tty2.service # For Ly login manager
 #greetd.service 
 # Plymouth prettiness
 systemctl enable plymouth-start.service
