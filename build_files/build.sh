@@ -39,7 +39,9 @@ systemctl enable avahi-daemon.service firewalld.service NetworkManager.service g
 systemctl enable cups.socket
 # Plymouth prettiness
 systemctl enable plymouth-start.service
-dracut -fv --regenerate-all
+set -x; \
+    kver=$(cd /usr/lib/modules && echo *); \
+    dracut -vf --no-machineid /usr/lib/modules/$kver/initramfs.img $kver
 
 # Firewall stuff
 firewall-offline-cmd --zone=public --add-service=ssh
