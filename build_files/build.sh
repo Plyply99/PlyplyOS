@@ -34,14 +34,12 @@ dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCe
 dnf5 clean all
 
 #### Example for enabling a System Unit File
-#systemctl enable podman.socket
 systemctl enable avahi-daemon.service firewalld.service NetworkManager.service ly@tty2.service rtkit-daemon.service plymouth-start.service
 systemctl enable cups.socket
 #greetd.service 
 
 # Ly login manager
 systemctl disable getty@tty2.service
-#chcon system_u:object_r:xdm_exec_t:s0 /usr/bin/ly
 semanage fcontext -a -t xdm_exec_t /usr/bin/ly
 restorecon -v /usr/bin/ly
 
@@ -51,19 +49,12 @@ set -x; \
     kver=$(cd /usr/lib/modules && echo *); \
     dracut -vf --no-machineid /usr/lib/modules/$kver/initramfs.img $kver
 
-# Firewall stuff
-#firewall-offline-cmd --zone=public --add-service=ssh
-#firewall-offline-cmd --zone=public --add-service=dhcpv6-client
-#firewall-offline-cmd --zone=public --add-service=mdns
-
 #Set locale
 localedef -i en_US -f UTF-8 en_US.UTF-8
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 # Set os-release
 HOME_URL="https://github.com/Plyply99/PlyplyOS"
-# OS Release File (changed in order with upstream)
-# TODO: change ANSI_COLOR
 sed -i -f - /usr/lib/os-release <<EOF
 s|^NAME=.*|NAME=\"PlyplyOS\ $(date +"%y/%m/%d")"|
 s|^PRETTY_NAME=.*|PRETTY_NAME=\"PlyplyOS built-$(date +"%y/%m/%d")\"|
