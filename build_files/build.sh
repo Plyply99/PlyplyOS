@@ -65,8 +65,8 @@ HOME_URL="https://github.com/Plyply99/PlyplyOS"
 # OS Release File (changed in order with upstream)
 # TODO: change ANSI_COLOR
 sed -i -f - /usr/lib/os-release <<EOF
-s|^NAME=.*|NAME=\"PlyplyOS $(date +"%y/%m/%d")\"|
-s|^PRETTY_NAME=.*|PRETTY_NAME=\"PlyplyOS\"|
+s|^NAME=.*|NAME=\"PlyplyOS\ $(date +"%y/%m/%d")"|
+s|^PRETTY_NAME=.*|PRETTY_NAME=\"PlyplyOS built-$(date +"%y/%m/%d")\"|
 s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"44\"|
 s|^VARIANT_ID=.*|VARIANT_ID=""|
 s|^HOME_URL=.*|HOME_URL=\"${HOME_URL}\"|
