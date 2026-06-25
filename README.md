@@ -2,8 +2,7 @@
 
 Fedora atomic with Niri, Hyprland, Dank Material Shell and supporting apps.
 
-
-<img width="388" height="644" alt="plyplyos" src="https://github.com/user-attachments/assets/f8fc2a33-e0e6-4414-9bcd-62787faf25d2" /> 
+<img width="3840" height="2160" alt="13:47:45" src="https://github.com/user-attachments/assets/a7ce1a07-3e47-44ed-a2e5-cff8289f36cb" />
 
 
 # To install:
