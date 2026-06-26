@@ -36,6 +36,7 @@ dnf5 clean all
 #### Example for enabling a System Unit File
 systemctl enable avahi-daemon.service firewalld.service NetworkManager.service ly@tty2.service rtkit-daemon.service plymouth-start.service
 systemctl enable cups.socket
+systemctl mask bootc-fetch-apply-updates.timer #turn off update timer
 #greetd.service 
 
 # Ly login manager
