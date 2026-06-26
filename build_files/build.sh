@@ -20,10 +20,10 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
 ### Install packages
-dnf5 -y install cups cups-filters system-config-printer ghostscript gutenprint gutenprint-cups bluez bluez-cups blueman NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld firewall-offline-cmd distrobox htop  xwininfo glibc-locale-source glibc-langpack-en libva-utils rtkit
 dnf5 -y install plymouth plymouth-theme-spinner ly
+dnf5 -y install cups-pk-helper fprintd i2c-tools kf6-kimageformats khal power-profiles-daemon gnome-software gnome-software-rpm-ostree htop xwininfo glibc-locale-source glibc-langpack-en libva-utils rtkit
+dnf5 -y install cups cups-filters system-config-printer ghostscript gutenprint gutenprint-cups bluez bluez-cups NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld firewall-offline-cmd distrobox
 dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look python3-dbus-next qt6-qtmultimedia slurp vkBasalt
-dnf5 -y install cups-pk-helper fprintd i2c-tools kf6-kimageformats khal power-profiles-daemon gnome-software gnome-software-rpm-ostree
 
 # Hyprland
 dnf5 -y copr enable nett00n/hyprland 
@@ -57,7 +57,7 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 HOME_URL="https://github.com/Plyply99/PlyplyOS"
 sed -i -f - /usr/lib/os-release <<EOF
 s|^NAME=.*|NAME=\"PlyplyOS\ $(date +"%y/%m/%d")"|
-s|^PRETTY_NAME=.*|PRETTY_NAME=\"PlyplyOS built-$(date +"%y/%m/%d")\"|
+s|^PRETTY_NAME=.*|PRETTY_NAME=\"PlyplyOS built $(date +"%y/%m/%d")\"|
 s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"44\"|
 s|^VARIANT_ID=.*|VARIANT_ID=""|
 s|^HOME_URL=.*|HOME_URL=\"${HOME_URL}\"|
