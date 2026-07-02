@@ -23,7 +23,7 @@ echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalt
 dnf5 -y install plymouth plymouth-theme-spinner ly
 dnf5 -y install alsa-firmware cups-pk-helper fprintd fprintd-pam i2c-tools kf6-kimageformats khal power-profiles-daemon gnome-software gnome-software-rpm-ostree htop xwininfo glibc-locale-source glibc-langpack-en libva-utils rtkit
 dnf5 -y install cups cups-filters system-config-printer ghostscript gutenprint gutenprint-cups bluez bluez-cups NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld firewall-offline-cmd distrobox smartmontools speech-dispatcher
-dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch gamemode ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look python3-dbus-next qt6-qtmultimedia slurp steam vkBasalt
+dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dms-greeter dsearch emacs eza fastfetch gamemode ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look python3-dbus-next qt6-qtmultimedia slurp vkBasalt
 
 # Hyprland
 dnf5 -y copr enable nett00n/hyprland 
