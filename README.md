@@ -2,7 +2,8 @@
 
 Fedora atomic with Niri, Hyprland, Dank Material Shell and supporting apps.
 
-<img width="3840" height="2160" alt="13:47:45" src="https://github.com/user-attachments/assets/a7ce1a07-3e47-44ed-a2e5-cff8289f36cb" />
+<img width="3840" height="2160" alt="08:43:43" src="https://github.com/user-attachments/assets/f20fbc84-8872-4f88-bbe8-0445da3bdb42" />
+
 
 
 # To install:
