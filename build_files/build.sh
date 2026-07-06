@@ -57,7 +57,7 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 # Set os-release
 HOME_URL="https://github.com/Plyply99/PlyplyOS"
 sed -i -f - /usr/lib/os-release <<EOF
-s|^NAME=.*|NAME=\"PlyplyOS\ $(date +"%y/%m/%d")"|
+s|^NAME=.*|NAME=\"PlyplyOS\"|
 s|^PRETTY_NAME=.*|PRETTY_NAME=\"PlyplyOS built $(date +"%y/%m/%d")\"|
 s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"44\"|
 s|^VARIANT_ID=.*|VARIANT_ID=""|
