@@ -11,4 +11,7 @@ Fedora atomic with Niri, Hyprland, Dank Material Shell and supporting apps.
 Download and install an atomic image such as Fedora CoreOS or Silverblue.
 Then enter the command below in a terminal.
 
+
 # sudo bootc switch ghcr.io/plyply99/plyplyos:latest
+
+
