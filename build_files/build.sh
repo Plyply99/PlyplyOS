@@ -44,7 +44,7 @@ systemctl mask bootc-fetch-apply-updates.timer #turn off update timer
 systemctl disable getty@tty2.service
 semanage fcontext -a -t xdm_exec_t /usr/bin/ly
 restorecon -v /usr/bin/ly
-systemctl start ly@tty2.service
+#systemctl start ly@tty2.service
 
 # Plymouth prettiness
 systemctl enable plymouth-start.service
