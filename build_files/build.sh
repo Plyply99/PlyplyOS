@@ -35,15 +35,16 @@ dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCe
 dnf5 clean all
 
 #### Example for enabling a System Unit File
-systemctl enable avahi-daemon.service firewalld.service NetworkManager.service greetd.service rtkit-daemon.service plymouth-start.service
+systemctl enable avahi-daemon.service firewalld.service NetworkManager.service ly@tty2.service rtkit-daemon.service plymouth-start.service
 systemctl enable cups.socket
 systemctl mask bootc-fetch-apply-updates.timer #turn off update timer
-# ly@tty2.service
+# greetd.service
 
 # Ly login manager
-#systemctl disable getty@tty2.service
-#semanage fcontext -a -t xdm_exec_t /usr/bin/ly
-#restorecon -v /usr/bin/ly
+systemctl disable getty@tty2.service
+semanage fcontext -a -t xdm_exec_t /usr/bin/ly
+restorecon -v /usr/bin/ly
+systemctl start ly@tty2.service
 
 # Plymouth prettiness
 systemctl enable plymouth-start.service
