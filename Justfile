@@ -180,6 +180,7 @@ _build-bib $target_image $tag $type $config: (_rootful_load_image target_image t
       -v /var/lib/containers/storage:/var/lib/containers/storage \
       "${bib_image}" \
       ${args} \
+      --rootfs btrfs \
       "${target_image}:${tag}"
 
     mkdir -p output
