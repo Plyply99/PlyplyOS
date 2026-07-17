@@ -11,18 +11,18 @@ dnf5 -y install @multimedia
 dnf5 -y swap mesa-va-drivers mesa-va-drivers-freeworld --allowerasing --enablerepo=rpmfusion-free-updates-testing
 dnf5 -y swap ffmpeg-free ffmpeg --allowerasing
 
+# Add COPR and TERRA repos
 dnf5 -y copr enable avengemedia/dms-git 
 dnf5 -y copr enable yalter/niri-git
 dnf5 -y copr enable lionheartp/Hyprland 
 dnf5 -y copr enable ublue-os/akmods 
-# Terra repo
 dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 # Use niri-git instead of fedora repo
 echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
 
 ### Install packages
-dnf5 -y install steam-devices #--allowerasing
+dnf5 -y install steam-devices
 dnf5 -y install plymouth plymouth-theme-spinner ly rpmdevtools akmods audit
 dnf5 -y install alsa-firmware cups-pk-helper fprintd fprintd-pam i2c-tools kf6-kimageformats khal power-profiles-daemon gnome-software gnome-software-rpm-ostree htop xwininfo glibc-locale-source glibc-langpack-en libva-utils rtkit
 dnf5 -y install cups cups-filters system-config-printer ghostscript gutenprint gutenprint-cups bluez bluez-cups NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld firewall-offline-cmd distrobox smartmontools speech-dispatcher
@@ -30,7 +30,7 @@ dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms 
 dnf5 -y install hyprland hyprland-guiutils hyprpicker uwsm
 
 # Remove niri-git and hyprland optional dependencies
-dnf5 -y remove alacritty fuzzel mako swaybg swayidle swaylock SwayNotificationCenter waybar
+dnf5 -y remove alacritty fuzzel kitty mako swaybg swayidle swaylock SwayNotificationCenter waybar wofi
 dnf5 clean all
 
 #### Example for enabling a System Unit File
@@ -52,8 +52,8 @@ set -x; \
 #Set locale and environment
 localedef -i en_US -f UTF-8 en_US.UTF-8
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
-echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"' > /etc/environment && \
-echo 'LANG="en_US.UTF-8"' >> /etc/environment
+touch /etc/environment
+echo -e 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"\nLANG="en_US.UTF-8"' | tee /etc/environment
 
 # Set os-release
 HOME_URL="https://github.com/Plyply99/PlyplyOS"
