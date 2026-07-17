@@ -52,7 +52,8 @@ set -x; \
 #Set locale and environment
 localedef -i en_US -f UTF-8 en_US.UTF-8
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
-echo -e 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"\nLANG="en_US.UTF-8"' | tee /etc/environment   
+echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"' > /etc/environment && \
+echo 'LANG="en_US.UTF-8"' >> /etc/environment
 
 # Set os-release
 HOME_URL="https://github.com/Plyply99/PlyplyOS"
