@@ -13,6 +13,7 @@ dnf5 -y swap ffmpeg-free ffmpeg --allowerasing
 
 dnf5 -y copr enable avengemedia/dms-git 
 dnf5 -y copr enable yalter/niri-git
+dnf5 -y copr enable lionheartp/Hyprland 
 dnf5 -y copr enable ublue-os/akmods 
 # Terra repo
 dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
@@ -26,9 +27,6 @@ dnf5 -y install plymouth plymouth-theme-spinner ly rpmdevtools akmods audit
 dnf5 -y install alsa-firmware cups-pk-helper fprintd fprintd-pam i2c-tools kf6-kimageformats khal power-profiles-daemon gnome-software gnome-software-rpm-ostree htop xwininfo glibc-locale-source glibc-langpack-en libva-utils rtkit
 dnf5 -y install cups cups-filters system-config-printer ghostscript gutenprint gutenprint-cups bluez bluez-cups NetworkManager-wifi linux-firmware avahi avahi-dnsconfd firewalld firewall-offline-cmd distrobox smartmontools speech-dispatcher
 dnf5 -y install adw-gtk3-theme bat bat-extras btop cava chafa cliphist dgop dms dsearch emacs eza fastfetch gamemode ghostty gnome-disk-utility grim input-remapper mangohud mpv nautilus niri nwg-look python3-dbus-next qt6-qtmultimedia slurp vkBasalt
- 
-# Hyprland
-dnf5 -y copr enable nett00n/hyprland 
 dnf5 -y install hyprland hyprland-guiutils hyprpicker uwsm
 
 # Remove niri-git and hyprland optional dependencies
@@ -54,6 +52,7 @@ set -x; \
 #Set locale and environment
 localedef -i en_US -f UTF-8 en_US.UTF-8
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo -e 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"\nLANG="en_US.UTF-8"' | tee /etc/environment   
 
 # Set os-release
 HOME_URL="https://github.com/Plyply99/PlyplyOS"
