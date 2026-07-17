@@ -169,6 +169,7 @@ _build-bib $target_image $tag $type $config: (_rootful_load_image target_image t
     BUILDTMP=$(mktemp -p "${PWD}" -d -t _build-bib.XXXXXXXXXX)
 
     sudo podman run \
+      --rootfs btrfs \
       --rm \
       -it \
       --privileged \
